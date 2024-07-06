@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import Auth from '../auth';
 import Productsdata from '../components/Productsdata';
+import { Link } from '@react-navigation/native';
 
 const Home = ({navigation}) => {
   let profiledata=useSelector(state=>state.Auth.name) ;
@@ -14,7 +15,9 @@ const handlesubmit = ()=>{
     <View>
       <Text style={styles.title} >Hello {profiledata}</Text>
     </View>
-   
+    <Link to={{screen: 'fav_images'}} style={styles.favLink}>
+          Favourite wallpaper 
+    </Link>
     <Productsdata/>
     <View style={styles.buttonView}>
             <Pressable style={styles.button} onPress={handlesubmit}>
@@ -49,5 +52,9 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingHorizontal: 50,
   },
+  favLink :{
+    textAlign : "center" ,
+    color : "red"
+  }
 })
 export default Home

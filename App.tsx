@@ -15,11 +15,11 @@ import { Provider } from 'react-redux';
 import store from './store/Store';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ProductDetails from './src/components/productDetails';
-
-const Stack = createNativeStackNavigator();
-const userEmail:any =  AsyncStorage.getItem('userEmail');
+import FavPage from './src/screens/FavPage';
 
 function App(): React.JSX.Element {
+  const Stack = createNativeStackNavigator();
+   const userEmail:any =  AsyncStorage.getItem('userEmail');
   return (
     <>
     <Provider store={store}>
@@ -28,6 +28,7 @@ function App(): React.JSX.Element {
            <Stack.Screen name="sign_up" component={SignUp} />
            <Stack.Screen name="Login" component={Login} />
            <Stack.Screen name="photo_details" component={ProductDetails} />
+           <Stack.Screen name="fav_images" component={FavPage} />
            {/* headerShown to remove arrow back from home page */}
            <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
        </Stack.Navigator>

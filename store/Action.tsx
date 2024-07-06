@@ -1,9 +1,13 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-
+// to get user name 
 export const profileData = (newData) => ({
     type: 'UPDATE_Profile_DATA',
     payload: newData,
   });
+
+
+  // api search action
 export const ApiSearchData = (query) => {
   return async (dispatch) => {
     try {
